@@ -16,6 +16,29 @@ public abstract class Entity {
 
     protected Image img;
 
+    protected boolean checkCollision = false;
+
+//    protected boolean ifCollide = false;
+
+    public int getX() {
+        return this.x;
+    }
+
+    public int getY() {
+        return this.y;
+    }
+
+//    public  getInstanceOf() {
+//
+//    }
+
+    protected void ifCollide(Entity entity) {
+        if (Math.abs((this.getX()) - (entity.getX())) < 2 ) {
+            this.checkCollision = true;
+            return;
+        }
+    }
+
     //Khởi tạo đối tượng, chuyển từ tọa độ đơn vị sang tọa độ trong canvas
     public Entity( int xUnit, int yUnit, Image img) {
         this.x = xUnit * Sprite.SCALED_SIZE;
@@ -27,4 +50,7 @@ public abstract class Entity {
         gc.drawImage(img, x, y);
     }
     public abstract void update();
+
+    public abstract void checkCollide(Entity entity);
+
 }

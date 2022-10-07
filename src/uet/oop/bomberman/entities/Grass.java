@@ -12,4 +12,7 @@ public class Grass extends Entity {
     public void update() {
 
     }
+
+    @Override
+    public void checkCollide(Entity entity) {}
 }
